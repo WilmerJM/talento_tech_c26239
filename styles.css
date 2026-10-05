@@ -7,9 +7,11 @@
 :root {
     font-size: 16px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: #FFFFFF;
+    background-color: #fafafa;
     scroll-behavior: smooth;
+    --generic-border: 1px solid rgb(224, 224, 224);
 }
+
 
 .generic-button {
 
@@ -20,13 +22,21 @@
 
 .header-container {
     display: block flex;
-
+    background-color: #ffffff;
     justify-content: space-between;
     align-items: center;
 
-    nav {
-        flex: 1 1;
+    h1 {
+        display:block;
+        text-align: center;
+        font-size: 2rem;
+        font-family: "Playwrite CA Guides", cursive;
+        font-weight: 500;
+        font-style: normal;
+        color: #46581e;
+    }
 
+    nav {
         ul {
             display: block flex;
             justify-content: end;
@@ -55,12 +65,15 @@ picture>a {
     gap: 5%;
 
     li {
-
         &::marker {
             content: none;
         }
 
         a {
+            img {
+                max-height: 15svh;
+            }
+
             display: block flex;
             flex-direction: column;
             text-decoration: none;
@@ -68,6 +81,7 @@ picture>a {
 
             span {
                 text-align: center;
+                padding-bottom: 5px;
             }
         }
     }
@@ -76,7 +90,7 @@ picture>a {
 .bonsais-container {
     display: block flex;
     flex-wrap: wrap;
-    row-gap: 5svh;
+    row-gap: 2svh;
     justify-content: center;
 
     h2 {
@@ -87,6 +101,10 @@ picture>a {
     }
 
     .flex-article {
+        background-color: #ffffff;
+        border: var(--generic-border);
+        border-radius: 10px;
+        padding: 10px;
         max-width: 80%;
         display: block flex;
         flex-direction: column;
@@ -164,6 +182,7 @@ picture>a {
         display: block grid;
         grid-template: repeat(5, 1fr) / .3fr 1fr;
         row-gap: 2svh;
+
         input {
             display: block;
             justify-self: start;
@@ -171,12 +190,14 @@ picture>a {
             min-width: 90%;
             height: 50%;
         }
-        label{
+
+        label {
             display: block;
             justify-self: center;
             align-self: center;
         }
-        .submit-button{
+
+        .submit-button {
             grid-column-start: 1;
             grid-column-end: 3;
             justify-self: center;
@@ -184,11 +205,56 @@ picture>a {
             height: 80%;
             align-self: center;
         }
-        textarea{
+
+        textarea {
             resize: none;
             justify-self: start;
             min-width: 90%;
         }
 
     }
+}
+
+.address-container {
+    display: block flex;
+    flex-direction: column;
+    row-gap: 1svh;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+
+    h3 {
+        text-align: center;
+        flex-basis: 10svh;
+        align-content: center;
+    }
+
+    address {
+        border: var(--generic-border);
+        flex: 1 1;
+        min-width: 90svw;
+        padding: 3%;
+        border-radius: 10px;
+        display: block grid;
+        grid-template: repeat(4, 1fr) / .1fr 1fr;
+        align-items: center;
+        min-height: 30svh;
+
+    }
+
+    iframe {
+        display: inline-block;
+        border: var(--generic-border);
+        min-height: 30svh;
+        border: var(--generic-border);
+        border-radius: 10px;
+        padding-bottom: 3%;
+    }
+}
+
+footer {
+    background-color: #46581e;
+    color: #ffffff;
+    min-height: 10svh;
+    text-align: center;
+    align-content: center;
 }
