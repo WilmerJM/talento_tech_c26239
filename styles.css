@@ -12,12 +12,18 @@
     --generic-border: 1px solid rgb(224, 224, 224);
 }
 
+body {
+    display: block flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
 
 .generic-button {
 
     background-color: #c60f34;
     border: 0;
     color: #FFFFFF;
+    border-radius: 5px;
 }
 
 .header-container {
@@ -27,7 +33,7 @@
     align-items: center;
 
     h1 {
-        display:block;
+        display: block;
         text-align: center;
         font-size: 2rem;
         font-family: "Playwrite CA Guides", cursive;
@@ -48,21 +54,27 @@
     li {
         display: inline-block;
     }
+
+    /* 3. Breakpoint: Escritorio (1024px+) */
+    @media (min-width: 1024px) {
+        justify-content: space-evenly;
+
+        h1 {
+            font-weight: 600;
+        }
+    }
 }
 
 .hero-image {
     max-width: 100%;
 }
 
-picture>a {
-    display: block;
-    width: 100%;
-}
+
 
 .nav-categories-container {
     display: block flex;
     overflow-x: auto;
-    gap: 5%;
+    column-gap: 10px;
 
     li {
         &::marker {
@@ -70,18 +82,72 @@ picture>a {
         }
 
         a {
-            img {
-                max-height: 15svh;
-            }
-
+            height: 100%;
+            text-decoration: none;
+            color: initial;
             display: block flex;
             flex-direction: column;
-            text-decoration: none;
-            color: #000;
+
+            div {
+
+                display: block flex;
+                justify-content: center;
+                align-items: center;
+                flex: 1 1 5svh;
+                min-width: 25svw;
+
+                img {
+                    width: 50%;
+                    height: 60%;
+                    object-fit: contain;
+                }
+            }
 
             span {
+                flex: 1 1 2svh;
                 text-align: center;
+                align-content: center;
                 padding-bottom: 5px;
+            }
+        }
+    }
+
+    /*breakpoint tablet 768px*/
+    @media (min-width: 768px) and (max-width: 1023px) {
+        column-gap: 0;
+
+        li {
+            a {
+                align-items: center;
+
+                div {
+                    min-width: 13svw;
+
+                    img {
+                        width: 50%;
+                        height: 50%;
+                    }
+                }
+            }
+        }
+    }
+
+    /* 3. Breakpoint: Escritorio (1024px+) */
+    @media (min-width: 1024px) {
+        column-gap: 20px;
+        padding: 0 10px;
+
+        li {
+            a {
+                div {
+                    min-width: 5svw;
+                    max-width: 8svw;
+
+                    img {
+                        width: 50%;
+                        height: 60%;
+                    }
+                }
             }
         }
     }
@@ -96,7 +162,7 @@ picture>a {
     h2 {
         width: 100%;
         text-align: center;
-        min-height: 20svh;
+        min-height: 10svh;
         align-content: center;
     }
 
@@ -129,6 +195,52 @@ picture>a {
             align-self: center;
         }
     }
+
+    /*breakpoint tablet 768px*/
+    @media (min-width: 768px) and (max-width: 1024px) {
+        column-gap: 1.5svw;
+        row-gap: 3svh;
+
+        h2 {
+            min-height: 20svh;
+        }
+
+        .flex-article {
+            max-width: 30%;
+            row-gap: 5svh;
+
+            button {
+                min-height: 12svh;
+                min-width: 70%;
+            }
+        }
+    }
+
+    /* 3. Breakpoint: Escritorio (1024px+) */
+    @media (min-width: 1024px) {
+        justify-content: space-evenly;
+        column-gap: 3svw;
+
+        h2 {
+            min-height: 10svh;
+        }
+
+        .flex-article {
+            max-width: 30%;
+            row-gap: 2svh;
+
+            img {
+                align-self: center;
+                object-fit: contain;
+                width: 60%;
+            }
+
+            button {
+                min-height: 6svh;
+                min-width: 50%;
+            }
+        }
+    }
 }
 
 .cursos-blog-container {
@@ -158,11 +270,83 @@ picture>a {
 
             p {
                 text-align: justify;
+                max-width: 95svw;
+                align-self: center;
             }
 
             button {
                 padding: 3%;
                 align-self: center;
+            }
+        }
+    }
+
+    /*breakpoint tablet 768px*/
+    @media (min-width: 768px) and (max-width: 1023px) {
+
+        .card {
+            flex-direction: row;
+            justify-content: space-evenly;
+
+            img {
+                max-width: 45svw;
+                min-height: 70svh;
+            }
+
+            .card-info {
+                max-width: 45svw;
+                min-height: 70svh;
+                justify-content: space-evenly;
+            }
+
+            .order-1 {
+                order: 1;
+            }
+
+            .order-2 {
+                order: 2;
+            }
+
+            .order-3 {
+                order: 4;
+            }
+
+            .order-4 {
+                order: 3;
+            }
+        }
+    }
+
+    /* 3. Breakpoint: Escritorio (1024px+) */
+    @media (min-width: 1024px) {
+        .card {
+            flex-direction: row;
+            justify-content: space-evenly;
+
+            img {
+                max-width: 40svw;
+                object-fit: contain;
+            }
+
+            .card-info {
+                max-width: 40svw;
+                justify-content: center;
+            }
+
+            .order-1 {
+                order: 1;
+            }
+
+            .order-2 {
+                order: 2;
+            }
+
+            .order-3 {
+                order: 4;
+            }
+
+            .order-4 {
+                order: 3;
             }
         }
     }
@@ -173,7 +357,7 @@ picture>a {
     flex-direction: column;
 
     h3 {
-        flex-basis: 10svh;
+        flex-basis: 5svh;
         text-align: center;
         align-content: center;
     }
@@ -213,6 +397,33 @@ picture>a {
         }
 
     }
+
+    /*breakpoint tablet 768px*/
+    @media (min-width: 768px) and (max-width: 1023px) {
+        h3 {
+            flex-basis: 20svh;
+        }
+
+        form {
+            grid-template: repeat(5, 1fr) / .12fr 1fr;
+            flex: 1 1;
+            min-width: 80svw;
+            align-self: center;
+        }
+    }
+
+    /*breakpoint desktop 1024px*/
+    @media (min-width: 1024px) {
+        h3{
+            flex-basis: 8svh;
+        }
+
+        form{
+            grid-template: repeat(5, 1fr) / .12fr 1fr;
+            min-width: 50svw;
+            align-self: center;
+        }
+    }
 }
 
 .address-container {
@@ -220,34 +431,73 @@ picture>a {
     flex-direction: column;
     row-gap: 1svh;
     flex-wrap: wrap;
-    align-content: space-evenly;
+    align-content: center;
 
     h3 {
         text-align: center;
-        flex-basis: 10svh;
+        flex-basis: 5vh;
         align-content: center;
     }
 
     address {
         border: var(--generic-border);
-        flex: 1 1;
-        min-width: 90svw;
+        flex: 1 1 30svh;
+        width: 90svw;
         padding: 3%;
         border-radius: 10px;
         display: block grid;
         grid-template: repeat(4, 1fr) / .1fr 1fr;
         align-items: center;
-        min-height: 30svh;
-
     }
 
     iframe {
-        display: inline-block;
-        border: var(--generic-border);
-        min-height: 30svh;
+        display: block;
+        flex: 1 1 35svh;
         border: var(--generic-border);
         border-radius: 10px;
-        padding-bottom: 3%;
+
+    }
+
+    /*breakpoint tablet 768px*/
+    @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        h3 {
+            flex-basis: 100%;
+            min-height: 20svh;
+        }
+
+        address {
+            padding: 2%;
+            max-width: 45svw;
+            min-height: 90svh;
+        }
+
+        iframe {
+            max-width: 45svw;
+            height: 90svh;
+        }
+    }
+    /*breakpoint desktop 1024px*/
+    @media (min-width: 1024px) {
+        justify-content: space-evenly;
+        h3{
+            min-height: 8svh;
+        }
+
+        address{
+            max-width: 45svw;
+            min-height: min-content;
+            max-height: 50svh;
+            grid-template: repeat(4, 1fr) / min-content 1fr;
+            column-gap: .5svw;
+            row-gap: 0;
+        }
+        iframe{
+            max-width: 45svw;
+            max-height: 50svh;
+        }
     }
 }
 
@@ -257,4 +507,14 @@ footer {
     min-height: 10svh;
     text-align: center;
     align-content: center;
+
+    /*breakpoint tablet 768px*/
+    @media (min-width: 768px) {
+        min-height: 20svh;
+    }
+
+    /*breakpoint desktop 1024px*/
+    @media (min-width: 1024px) {
+        min-height: 12svh;
+    }
 }
