@@ -152,14 +152,13 @@ body {
     .grid-bonsais-container {
 
         display: block grid;
-        grid-template-columns: 1fr;
-        justify-items: center;
+        grid-template-columns: 80%;
+        justify-content: center;
         row-gap: 10px;
 
         .card-container {
             display: block flex;
             flex-direction: column;
-            width: 80%;
             border: var(--generic-border);
             border-radius: 12px;
 
@@ -176,11 +175,15 @@ body {
             .card-info-container {
                 display: block flex;
                 flex-direction: column;
+
                 row-gap: 10px;
+                justify-content: space-evenly;
+                flex: 1;
                 padding-bottom: 10px;
 
                 h3 {
                     text-align: center;
+                    font-size: 1rem;
                     padding: 5px 0;
                 }
 
@@ -202,10 +205,23 @@ body {
     }
 
     /*breakpoint tablet 768px*/
-    @media (min-width: 768px) {}
+    @media (min-width: 768px) {
+
+        .grid-bonsais-container {
+            grid-template-columns: 30% 30% 30%;
+            column-gap: 10px;
+        }
+    }
 
     /* 3. Breakpoint: Escritorio (1024px+) */
-    @media (min-width: 1024px) {}
+    @media (min-width: 1024px) {
+
+        .grid-bonsais-container {
+            grid-template-columns: repeat(auto-fit, 20%);
+            column-gap: 5px;
+            justify-content: space-evenly;
+        }
+    }
 }
 
 .cursos-blog-container {
