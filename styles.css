@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 :root {
@@ -15,7 +16,7 @@
 body {
     display: block flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 5px;
 }
 
 .generic-button {
@@ -69,12 +70,9 @@ body {
     max-width: 100%;
 }
 
-
-
 .nav-categories-container {
     display: block flex;
     overflow-x: auto;
-    column-gap: 10px;
 
     li {
         &::marker {
@@ -82,51 +80,49 @@ body {
         }
 
         a {
-            height: 100%;
             text-decoration: none;
             color: initial;
             display: block flex;
             flex-direction: column;
-
+            align-items: center;
+            min-width: 120px;
+            transition: all .2s;
             div {
 
-                display: block flex;
-                justify-content: center;
-                align-items: center;
-                flex: 1 1 5svh;
-                min-width: 25svw;
+                width: 30%;
 
                 img {
-                    width: 50%;
-                    height: 60%;
-                    object-fit: contain;
+                    width: 100%;
+                    height: 100%;
                 }
             }
 
             span {
-                flex: 1 1 2svh;
+                min-width: 100%;
                 text-align: center;
-                align-content: center;
-                padding-bottom: 5px;
+            }
+
+            &:active {
+                transform: scale(0.96);
+                opacity: 0.9;
+            }
+
+            @media (hover: hover) {
+                &:hover {
+                    background-color: #cecaca;
+                    color: #0f172a;
+                }
             }
         }
     }
 
     /*breakpoint tablet 768px*/
-    @media (min-width: 768px) and (max-width: 1023px) {
-        column-gap: 0;
-
+    @media (min-width: 768px) {
         li {
             a {
-                align-items: center;
 
                 div {
-                    min-width: 13svw;
-
-                    img {
-                        width: 50%;
-                        height: 50%;
-                    }
+                    width: 25%;
                 }
             }
         }
@@ -134,19 +130,11 @@ body {
 
     /* 3. Breakpoint: Escritorio (1024px+) */
     @media (min-width: 1024px) {
-        column-gap: 20px;
-        padding: 0 10px;
-
         li {
             a {
+                height: 100%;
                 div {
-                    min-width: 5svw;
-                    max-width: 8svw;
-
-                    img {
-                        width: 50%;
-                        height: 60%;
-                    }
+                    width: 20%;
                 }
             }
         }
@@ -414,11 +402,11 @@ body {
 
     /*breakpoint desktop 1024px*/
     @media (min-width: 1024px) {
-        h3{
+        h3 {
             flex-basis: 8svh;
         }
 
-        form{
+        form {
             grid-template: repeat(5, 1fr) / .12fr 1fr;
             min-width: 50svw;
             align-self: center;
@@ -479,14 +467,16 @@ body {
             height: 90svh;
         }
     }
+
     /*breakpoint desktop 1024px*/
     @media (min-width: 1024px) {
         justify-content: space-evenly;
-        h3{
+
+        h3 {
             min-height: 8svh;
         }
 
-        address{
+        address {
             max-width: 45svw;
             min-height: min-content;
             max-height: 50svh;
@@ -494,7 +484,8 @@ body {
             column-gap: .5svw;
             row-gap: 0;
         }
-        iframe{
+
+        iframe {
             max-width: 45svw;
             max-height: 50svh;
         }
